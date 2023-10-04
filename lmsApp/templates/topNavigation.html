@@ -1,0 +1,99 @@
+{% load static %}
+<header>
+    <style>
+        /* Updated Navbar Styling */
+        .navbar {
+            background-color: #e5d8c6; /* Beige background color */
+            color: #2d2926; /* Dark brown text color */
+        }
+
+        .navbar-brand {
+            color: #2d2926 !important; /* Dark brown text color for brand */
+        }
+
+        .navbar-toggler-icon {
+            background-color: #2d2926; /* Dark brown color for the toggler icon */
+        }
+
+        .nav-link {
+            color: #2d2926 !important; /* Dark brown text color for links */
+        }
+
+        /* Active link style */
+        .nav-item.active .nav-link {
+            background-color: #2d2926; /* Dark brown background for active link */
+            border-radius: 5px; /* Rounded corners for active link */
+        }
+
+        /* Centering Navbar Items */
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Spacing Between Navbar Items */
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+
+        /* Profile and Logout Link Styling */
+        .nav-item.profile-link a {
+            font-weight: bold;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow border-bottom">
+        <div class="container">
+            <a class="navbar-brand" target="_blank" href="./">
+                <b>Libroasis</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+                aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="topNav">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'home-page' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'category-page' %}">Catégories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'sub_category-page' %}">Sous-catégories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'book-page' %}">Livres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'student-page' %}">Etudiants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'borrow-page' %}">Emprunts</a>
+                    </li>
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'user-page' %}">Utilisateurs</a>
+                    </li>
+                    {% endif %}
+                    {% endif %}
+                </ul>
+
+                <ul class="navbar-nav d-flex flex-row">
+                    {% if user.id %}
+                    <li class="nav-item profile-link">
+                        <a class="nav-link"  href="{% url 'profile-page' %}"><b>Howdy, {{user.username}}</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Se déconnecter</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{% url 'login-page' %}">Se connecter</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

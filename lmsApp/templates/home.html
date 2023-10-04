@@ -1,0 +1,146 @@
+{% extends "base.html" %} {% load humanize %} {% load customfilter %} {% block pageContent %}
+
+<style>
+    section {
+        padding: 30px 0;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+        margin-right: 10px;
+    }
+
+    .card-beige {
+        background-color: #f3e0c5; /* Beige */
+        color: #3d2b1f; /* Brown */
+    }
+
+    .card-brown {
+        background-color: #5e4934; /* Dark Brown */
+        color: #f3e0c5; /* Beige */
+    }
+</style>
+
+<section class="">
+    <h2 class="fw-bolder">Welcome, {{request.user.first_name}}&nbsp;{{request.user.last_name}}!</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-beige">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light card-icon fa fa-th-list"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{ categories|intcomma }}</h1>
+                            </div>
+                            <div class="col-12 text-end"><b>Catégories actives  </b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-brown">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-list"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{sub_categories|intcomma}}</h2>
+                            </div>
+                            <div class="col-12 text-end"><b>Sous-catégories actives</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-beige">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-user-friends"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{students|intcomma}}</h2>
+                            </div>
+                            <div class="col-12 text-end"><b>Etudiants actifs</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-brown">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-book"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{books|intcomma}}</h2>
+                            </div>
+                            <div class="col-12 text-end"><b>Livres actifs</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-beige">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-book-open"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{pending|intcomma}}</h2>
+                            </div>
+                            <div class="col-12 text-end"><b>Emprunts en cours</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 px-1 pb-2">
+            <div class="card card-default rounded-0 shadow card-brown">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row mx-0 w-100 align-items-center">
+                            <div class="col-3">
+                                <i class="fs-1 text-light fa fa-book-open"></i>
+                            </div>
+                            <div class="col-9">
+                                <h1 class="text-end">{{transactions|intcomma}}</h2>
+                            </div>
+                            <div class="col-12 text-end"><b>Total d'emprunts</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+</div> {% endblock pageContent %} {% block ScriptBlock %}
+<script>
+</script>
+{% endblock ScriptBlock %}
