@@ -30,15 +30,15 @@
                 <div class="mb-3">
                     <label for="gender" class="control-label">Genre</label>
                     <select type="text" id="gender" name="gender" class="form-select form-select-sm rounded-0" required>
-                        {% if  student.gender == 'Homme' %}
-                            <option selected>Homme</option>
+                        {% if  student.gender == 'Male' %}
+                            <option selected>Male</option>
                         {% else %}
                             <option>Male</option>
                         {% endif %}
-                        {% if  student.gender == 'Femme' %}
-                            <option selected>Femme</option>
+                        {% if  student.gender == 'Female' %}
+                            <option selected>Female</option>
                         {% else %}
-                            <option>Femme</option>
+                            <option>Female</option>
                         {% endif %}
                     </select>
                 </div>
@@ -51,7 +51,7 @@
                     <input type="email" id="email" name="email" class="form-control form-control-sm rounded-0" value="{{student.email}}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="address" class="control-label">Adress</label>
+                    <label for="address" class="control-label">Adresse</label>
                     <textarea rows="3" id="address" name="address" class="form-control form-control-sm rounded-0" required>{{student.address}}</textarea>
                 </div>
             </div>

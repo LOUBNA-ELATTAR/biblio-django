@@ -11,7 +11,7 @@
                     <div class="text-end mb-3">
                         <button class="btn btn-sm btn-warning rounded-0 bg-gradient-warning" type="button" id="create_new"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
-                    <table class="table table-bordered table-striped" id="user-tbl">
+                    <table class="table table-bordered table-striped">
                         <colgroup>
                             <col width="5%">
                             <col width="50%">
@@ -67,18 +67,7 @@
             $('#viewer_modal').modal('show')
         })
         $('.delete-data').click(function() {
-            _conf("Etes-vous sur de vouloir supprimer cet utilisateur ?", 'delete_user', ["'" + $(this).attr('data-url') + "'"])
-        })
-        $('#user-tbl').find('td, th').addClass('px-2 py-1 align-middle')
-        $('#user-tbl').DataTable({
-            columnDefs: [{
-                orderable: false,
-                targets: [3]
-            }],
-            lengthMenu: [
-                [25, 50, 100, -1],
-                [25, 50, 100, "All"]
-            ]
+            _conf("Êtes-vous sûr de vouloir supprimer cet utilisateur ?", 'delete_user', ["'" + $(this).attr('data-url') + "'"])
         })
     })
 

@@ -19,7 +19,7 @@
                     <div class="text-end mb-3">
                         <button class="btn btn-sm btn-warning rounded-0 bg-gradient-warning" type="button" id="create_new"><i class="fa fa-plus"></i> Ajouter</button>
                     </div>
-                    <table class="table table-bordered table-striped" id="category-tbl">
+                    <table class="table table-bordered table-striped">
                         <colcategory>
                             <col width="5%">
                             <col width="15%">
@@ -92,17 +92,6 @@
         })
         $('.delete-data').click(function() {
             _conf("Êtes-vous sûr de vouloir supprimer cette catégorie ?", 'delete_category', ["'" + $(this).attr('data-url') + "'"])
-        })
-        $('#category-tbl').find('td, th').addClass('px-2 py-1 align-middle')
-        $('#category-tbl').DataTable({
-            columnDefs: [{
-                orderable: false,
-                targets: [5]
-            }],
-            lengthMenu: [
-                [25, 50, 100, -1],
-                [25, 50, 100, "All"]
-            ]
         })
     })
 
